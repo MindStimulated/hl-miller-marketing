@@ -1251,6 +1251,33 @@
             overflow: hidden !important;
             text-overflow: ellipsis !important;
         }
+        
+        /* Fix Transformation Matrix side-by-side comparison */
+        div[style*="grid-template-columns: 1fr 1fr"][style*="gap: 40px"] {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+        }
+        
+        /* Fix Decision section side-by-side comparison */
+        .slide#decision-forcing-close div[style*="grid-template-columns: 1fr 1fr"] {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+        }
+        
+        /* Ensure all grid containers don't overflow */
+        div[style*="display: grid"] {
+            min-width: 0 !important;
+            overflow: hidden !important;
+        }
+        
+        /* Fix any nested content in comparison boxes */
+        div[style*="padding: 30px"] {
+            padding: 15px !important;
+        }
+        
+        div[style*="padding: 35px"] {
+            padding: 20px !important;
+        }
     }
 </style>
 </head>
