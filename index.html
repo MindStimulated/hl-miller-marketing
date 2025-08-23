@@ -1087,6 +1087,145 @@
             height: 150px;
         }
     }
+    
+    /* Mobile-specific fixes for problematic sections */
+    @media (max-width: 768px) {
+        /* Fix first section bubbles/badges positioning */
+        .slide#enhanced-title div[style*="position: absolute"] {
+            position: relative !important;
+            top: auto !important;
+            left: auto !important;
+            right: auto !important;
+            display: flex !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            gap: 10px !important;
+            margin: 20px 0 !important;
+        }
+        
+        .slide#enhanced-title div[style*="position: absolute"]:first-of-type {
+            margin-top: 0 !important;
+        }
+        
+        /* Fix services grid minimum widths causing overflow */
+        .services-grid {
+            grid-template-columns: 1fr !important;
+            gap: 15px !important;
+        }
+        
+        .services-grid[style*="minmax"] {
+            grid-template-columns: 1fr !important;
+        }
+        
+        /* Fix municipal sector and other wide boxes */
+        .service-item div[style*="grid-template-columns"] {
+            grid-template-columns: 1fr !important;
+            gap: 15px !important;
+        }
+        
+        /* Fix Secret Weapons section grid */
+        .services-grid[style*="minmax(450px"] {
+            grid-template-columns: 1fr !important;
+        }
+        
+        /* Fix any inline grid styles that cause overflow */
+        [style*="grid-template-columns: 2fr 1fr"],
+        [style*="grid-template-columns: 1fr 2fr"],
+        [style*="grid-template-columns: repeat(auto-fit, minmax(450px"] {
+            grid-template-columns: 1fr !important;
+            gap: 15px !important;
+        }
+        
+        /* Fix any wide minimum widths */
+        [style*="minmax(450px"] {
+            grid-template-columns: 1fr !important;
+        }
+        
+        [style*="minmax(350px"] {
+            grid-template-columns: 1fr !important;
+        }
+        
+        [style*="minmax(300px"] {
+            grid-template-columns: 1fr !important;
+        }
+        
+        /* Fix horizontal overflow from any element */
+        .slide > * {
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        
+        /* Fix pricing grid and stats grid */
+        .pricing-grid,
+        .stats {
+            grid-template-columns: 1fr !important;
+            gap: 15px !important;
+        }
+        
+        /* Fix any flex containers that might overflow */
+        div[style*="display: flex"] {
+            flex-wrap: wrap !important;
+        }
+        
+        /* Emergency session badge fix */
+        div[style*="background: rgba(255, 0, 0, 0.9)"] {
+            font-size: 0.8rem !important;
+            padding: 6px 10px !important;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 150px;
+        }
+    }
+    
+    /* Additional mobile fixes for small screens */
+    @media (max-width: 480px) {
+        /* Even more aggressive fixes for small phones */
+        .slide {
+            overflow-x: hidden !important;
+        }
+        
+        /* Fix any remaining grid issues */
+        .services-grid,
+        .stats,
+        .pricing-grid,
+        .two-column,
+        [class*="grid"],
+        [style*="grid-template-columns"] {
+            display: block !important;
+        }
+        
+        .services-grid > *,
+        .stats > *,
+        .pricing-grid > *,
+        .two-column > * {
+            display: block !important;
+            width: 100% !important;
+            margin-bottom: 15px !important;
+        }
+        
+        /* Fix any absolute positioning that breaks mobile */
+        [style*="position: absolute"]:not(.nav-toggle):not(.table-of-contents) {
+            position: relative !important;
+            top: auto !important;
+            left: auto !important;
+            right: auto !important;
+            margin: 10px 0 !important;
+        }
+        
+        /* Fix badges to be smaller and wrap better */
+        div[style*="padding: 8px 15px"] {
+            padding: 4px 8px !important;
+            font-size: 0.7rem !important;
+            margin: 2px !important;
+        }
+        
+        /* Fix any text that might be too long */
+        h3, h4 {
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+        }
+    }
 </style>
 </head>
 <body>
@@ -1462,7 +1601,7 @@
             
             <div class="service-item" style="background: linear-gradient(135deg, rgba(139, 0, 0, 0.15), rgba(178, 34, 34, 0.1)); border: 2px solid rgba(139, 0, 0, 0.3);">
                 <h3>📉 Daily Lead Hemorrhaging</h3>
-                <div style="font-size: 2.2rem; font-weight: 700; color: #000; margin: 15px 0;">7-13 Leads</div>
+                <div style="font-size: 2.2rem; font-weight: 700; color: #FFF; margin: 15px 0;">7-13 Leads</div>
                 <p><strong>Qualified leads going to competitors daily</strong><br>
                 Prospects ready to hire YOUR services<br>
                 Finding DEB, MATT, Walton instead<br>
