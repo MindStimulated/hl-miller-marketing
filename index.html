@@ -1225,6 +1225,32 @@
             word-wrap: break-word !important;
             overflow-wrap: break-word !important;
         }
+        
+        /* Fix bottom statistics in emergency session section */
+        .slide#enhanced-title div[style*="position: absolute"][style*="bottom: 30px"] {
+            position: relative !important;
+            bottom: auto !important;
+            left: auto !important;
+            transform: none !important;
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 15px !important;
+            margin: 30px auto 0 auto !important;
+            max-width: 280px !important;
+            padding: 0 10px !important;
+        }
+        
+        .slide#enhanced-title div[style*="position: absolute"][style*="bottom: 30px"] > div {
+            text-align: center !important;
+            min-width: 0 !important;
+        }
+        
+        .slide#enhanced-title div[style*="position: absolute"][style*="bottom: 30px"] > div > div {
+            font-size: 1.2rem !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+        }
     }
 </style>
 </head>
